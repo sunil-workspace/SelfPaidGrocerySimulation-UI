@@ -1,0 +1,21 @@
+<!-- <div class="row leftRightHeight">
+    <div class="col-sm-12 item-scroll">
+
+<p class= "alignment">
+    <h2>Thank you for Shopping!</h2>
+</p>
+<h5>Click here to print your receipt</h5>
+<button>Print</button>
+</div>
+</div> -->
+
+<div class="row leftRightHeight">
+    <div class="col-sm-12 item-scroll">
+        <div class="alignment">
+            <h1>Thank you for Shopping!</h1>
+            <br><br>
+            <button type="submit" class="btn btn-primary mb-2" (click)="generateReceipt()"><h5>Print Receipt</h5></button>
+        </div>
+        <span *ngIf="isReceiptGenerated">Receipt is generated</span>
+    </div>
+</div>

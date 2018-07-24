@@ -1,0 +1,47 @@
+<div class="row leftRightHeight">
+  <div class="col-sm-6 item-scroll">
+    <h3>Please enter the below details:</h3>
+    <br>
+    <table>
+
+      <tr>
+        <td>Name on the Card: </td>
+        <td>
+          <!--<input type="text">-->
+          <input type="text" id="debitCardName" [(ngModel)]="debitCardName" name="debitCardName" value="debitCardName" >
+        </td>
+      </tr>
+
+      <tr>
+        <td>Card Number: </td>
+        <td>
+          <input type="text" id="debitCardNumber" [(ngModel)]="debitCardNumber" name="debitCardNumber" value="debitCardNumber" >
+        </td>
+      </tr>
+
+      <tr>
+        <td>Expiry Date: </td>
+        <td>
+          <!--<input type="month">-->
+          <input type="month" id="debitCardExpDate" [(ngModel)]="debitCardExpDate" name="debitCardExpDate" value="debitCardExpDate">
+        </td>
+      </tr>
+      <tr>
+        <td>Card Code: </td>
+        <td>
+          <!--<input type="text">-->
+          <input type="text" id="debitCardSecurityCode" [(ngModel)]="debitCardSecurityCode" name="debitCardSecurityCode" value="debitCardSecurityCode"
+            placeholder="Enter Card Security Code">
+        </td>
+      </tr>
+
+      <tr>
+        <td colspan=2 align="center">
+          <!--<input type="submit" name="submitButton" value="submit">-->
+          <button type="submit" class="btn btn-primary mb-2" (click)="passDebitCardDetails(memberId)">Submit</button>
+        </td>
+      </tr>
+
+    </table>
+  </div>
+</div>
