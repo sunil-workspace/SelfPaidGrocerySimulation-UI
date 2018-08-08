@@ -8,6 +8,7 @@ import { ItemDetailsService } from '../services/item-details.service';
 })
 export class LookupItemComponent implements OnInit {
   @Input() itemSelectedVal: String;
+  @Input('memberId') memberId: any;
 
   selectedItemRange: String = "Popular";
   @Output() goToLookupFinishPayButtonPage = new EventEmitter<any>();
@@ -18,8 +19,8 @@ export class LookupItemComponent implements OnInit {
   }
 
   itemSelected(selectedItem): void {
-    console.log("Selected Item: ", selectedItem);
-    this.itemDetailsService.getItemDetails(selectedItem).subscribe((itemDetails) => {
+    console.log("Selected Item: ", selectedItem + " MemberId: ", this.memberId);
+      this.itemDetailsService.getItemDetails(selectedItem, this.memberId).subscribe((itemDetails) => {
       console.log("Response came to itemSelected method. Item Details:: ", itemDetails);
       this.goToLookupFinishPayButtonPage.emit(itemDetails);
     });

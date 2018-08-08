@@ -1,8 +1,9 @@
 <!--display logo and display table-->
 
 <div class="logoTableImage">
-    <h5 class="selfCheckoutImageText">Self Checkout</h5>
-    <img alt="Self Checkout Image" width="150" height="150" src="..\assets\images\cartSymbol.jpg" align="middle">
+    <h5 class="selfCheckoutImageText">Self-Paid Grocery System</h5>
+    <!-- <img alt="Self Checkout Image" width="150" height="150" src="..\assets\images\cartSymbol.jpg" align="middle"> -->
+    <img alt="Self Checkout Image" width="150" height="150" src="..\assets\images\cartSymboll.jpg" align="middle">
 </div>
 
 <br>
@@ -13,15 +14,15 @@
             <thead>
                 <tr>
                     <th scope="col" style="width: 25%;">Item Name</th>
-                    <th scope="col" style="width: 25%;">Price($)</th>
+                    <th scope="col" style="width: 25%;">Price ($)</th>
                     <th scope="col" style="width: 25%;">Quantity</th>
-                    <th scope="col" style="width: 25%;">Weight(lb)</th>
+                    <th scope="col" style="width: 25%;">Weight (lb)</th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let itemsSelected of itemsSelectedArr">
                     <td style="width: 25%;">{{itemsSelected.NAME}}</td>
-                    <td style="width: 25%;">{{itemsSelected.PRICE}}</td>
+                    <td style="width: 25%;">{{ itemsSelected.PRICE | number : '1.2-2' }}</td>
                     <td style="width: 25%;">{{itemsSelected.QUANTITY}}</td>
                     <td style="width: 25%;">{{itemsSelected.WEIGHT}}</td>
                 </tr>

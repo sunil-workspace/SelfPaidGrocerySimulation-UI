@@ -1,7 +1,9 @@
 <!-- small logo, Application Name (Self Checkout), Textfiled, Member button, Not a member button -->
 <div class="onLoadRight">
-    <img class="smallLogo" alt="Self Checkout Image" width="20%" height="20%" src="..\assets\images\cartSymbol.jpg" align="middle">
-    <h4 class="smallLogoImageText">Self Checkout</h4>
+    <br>
+    <!-- <img class="smallLogo" alt="Self Checkout Image" width="20%" height="20%" src="..\assets\images\cartSymbol.jpg" align="middle"> -->
+    <img class="smallLogo" alt="Self Checkout Image" width="20%" height="20%" src="..\assets\images\cartSymboll.jpg" align="middle">
+    <h4 class="smallLogoImageText">Avoid Waiting..Save Time</h4>
     <br>
 
     <span *ngIf='notAvalidMember != ""' style="color:rgb(255, 127, 127) ">
@@ -22,6 +24,7 @@
   </form>
     <br>
     <button type="submit" class="btn btn-primary mb-2" (click)="displayLookupFinishPayButtonsForGuest()" >Guest</button>
+    <!-- <button type="submit" id = "memberId" value = "memberId" class="btn btn-primary mb-2" (click)="displayLookupFinishPayButtonsForGuest(memberId)" >Guest</button> -->
 </div>
 
     <!-- <form class="form-inline">

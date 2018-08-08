@@ -9,7 +9,7 @@ import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
 export class LookupFinishpayComponent implements OnInit {
 
   @Output() onClickLookup= new EventEmitter<boolean>();
-  @Output() onClickingFinishPay= new EventEmitter<boolean>();
+  @Output() onClickingFinishPay= new EventEmitter<any>();
 
   @Input('membershipResponse') membershipResponse: any;
 
@@ -24,6 +24,11 @@ export class LookupFinishpayComponent implements OnInit {
   }
 
   displayPayOptions(){
-   this.onClickingFinishPay.emit(this.membershipResponse)
+    console.log("In displayPayOptions membershipResponse: ", this.membershipResponse);
+    if(this.membershipResponse == undefined){
+      this.onClickingFinishPay.emit("Guest");
+    } else{
+        this.onClickingFinishPay.emit(this.membershipResponse)
+    }
   }
 }

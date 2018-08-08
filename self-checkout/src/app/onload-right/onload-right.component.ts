@@ -9,7 +9,8 @@ import { MemberidValidatorService } from '../services/memberid-validator.service
 })
 export class OnloadRightComponent implements OnInit {
 
-  @Output() onClicking = new EventEmitter<boolean>();
+  @Output() onClicking = new EventEmitter<any>();
+  @Output() goToLookupItemPage = new EventEmitter<any>();
 
 memberId : string = "";
 notAvalidMember : string = "";
@@ -22,6 +23,7 @@ notAvalidMember : string = "";
   displayLookupFinishPayButtonsForGuest() {
     console.log("Inside displayLookupFinishPayButtonsForGuest");
     this.onClicking.emit();
+    this.goToLookupItemPage.emit("Guest");
   }
 
   displayLookupFinishPayButtonsForMember(memberId) {
@@ -32,6 +34,8 @@ notAvalidMember : string = "";
         console.log("MembershipId: ", response.membershipId);
         console.log("MemberName: ", response.memberName);
         this.onClicking.emit(response);
+        this.goToLookupItemPage.emit(this.memberId);
+        
       } else if(response.isValidMember == "false"){
         this.notAvalidMember="The entered Member ID is not valid!";
       } else{

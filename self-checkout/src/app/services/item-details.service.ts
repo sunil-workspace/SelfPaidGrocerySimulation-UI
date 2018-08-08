@@ -13,9 +13,9 @@ export class ItemDetailsService {
 
   constructor(public http:Http) { }
 
-  getItemDetails(selectedItem){
-    console.log("Came to ItemDetailsService: getItemDetails method, The item selected is:: ", selectedItem);
-    return this.http.get('http://localhost:8080/selfpaidgrocerysystem/getItemDetails/'+selectedItem).map(res => res.json());
+  getItemDetails(selectedItem, memberId){
+    console.log("Came to ItemDetailsService: getItemDetails method, The item selected is:: ", selectedItem + " and memberId: ", memberId);
+    return this.http.get('http://localhost:8080/selfpaidgrocerysystem/getItemDetails/'+selectedItem+"-"+memberId).map(res => res.json());
     /*if(selectedItem == "apple"){
     return this.http.get('assets/jsons/itemDetails.json').map(res => res.json());
     } else if(selectedItem == "avocado"){

@@ -4,13 +4,14 @@
 
     <ng-template #leftRightTemplate>
         <div class="row leftRightHeight">
-            <div class="col-sm-6" style="background-color:lavender;">
+            <div class="col-sm-6" style="background-color:rgba(214, 234, 248);">
                 <app-onload-left></app-onload-left>
 
             </div>
-            <div class="col-sm-6" style="background-color:rgba(230, 245, 250, 0.938);">
+            <div class="col-sm-6" style="background-color:rgba(213, 245, 227);">
 
-                <app-onload-right (onClicking)="onClickingMemberButton($event)"></app-onload-right>
+                <!-- <app-onload-right (onClicking)="onClickingMemberButton($event)"></app-onload-right> -->
+                <app-onload-right (goToLookupItemPage)="passMemberIdToLookUpItem($event)" (onClicking)="onClickingMemberButton($event)"></app-onload-right>
             </div>
         </div>
     </ng-template>
@@ -19,10 +20,10 @@
         <span *ngIf="lookupFinishPayButtons==true; then lookupFinishButtonsTemplate; else lookupItemsAndFinishPayTemplate"></span>
         <ng-template #lookupFinishButtonsTemplate>
             <div class="row leftRightHeight">
-                <div class="col-sm-6" style="background-color:lavender;">
+                <div class="col-sm-6" style="background-color:rgba(214, 234, 248)">
                     <app-logo-table [itemDetailsArr]="itemDetailsArr"></app-logo-table>
                 </div>
-                <div class="col-sm-6" style="background-color:rgba(230, 245, 250, 0.938);">
+                <div class="col-sm-6" style="background-color:rgba(213, 245, 227)">
                     <app-lookup-finishpay [membershipResponse]="membershipResponse" (onClickLookup)="onClickingLookupButton()" (onClickingFinishPay)="onClickingFinishPay($event)"></app-lookup-finishpay>
                 </div>
             </div>
@@ -32,9 +33,9 @@
             <span *ngIf="lookupFinishFlow==true; then lookupItemTemplate; else finishAndPayTemplate"></span>
             <ng-template #lookupItemTemplate>
                 <div class="row leftRightHeight">
-                    <div class="col-sm-12" style="background-color:rgba(231, 241, 245, 0.938);">
-                        <!-- -->
-                        <app-lookup-item (goToLookupFinishPayButtonPage)="onClickingItem($event)"></app-lookup-item>
+                    <div class="col-sm-12" style="background-color:rgba(213, 245, 227);">
+                        <!-- <app-lookup-item (goToLookupFinishPayButtonPage)="onClickingItem($event)"></app-lookup-item> -->
+                        <app-lookup-item [memberId] ="memberId" (goToLookupFinishPayButtonPage)="onClickingItem($event)"></app-lookup-item>
                     </div>
                 </div>
             </ng-template>
@@ -42,7 +43,7 @@
             <!-- -->
 
                 <ng-template #finishAndPayTemplate>
-                    <div class="col-sm-12" style="background-color:rgba(231, 241, 245, 0.938);">
+                    <div class="col-sm-12" style="background-color:rgba(213, 245, 227);">
                         <app-finish-pay></app-finish-pay>
                     </div>
                 </ng-template>
@@ -69,7 +70,9 @@
 
     <!--Footer start-->
     <div class="row bottom">
-        <div class="col-sm-12" style="background-color:yellow;"></div>
+        <div class="col-sm-12" style="background-color:rgb(165, 105, 189);">
+            <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Total Price:&nbsp;&nbsp;${{ totalPrice | number : '1.2-2' }}</strong>
+        </div>
     </div>
     <!--Footer end-->
 
